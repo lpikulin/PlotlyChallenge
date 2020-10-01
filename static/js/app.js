@@ -51,11 +51,19 @@ function init() {
              x: sample_values,
              y: strOtuIds,
              labels: otu_labels,
+             marker:{color:'#dd9666'},
              type: "bar",
              orientation: "h"};
 
+             var layout={
+                 title:'Top 10 OTUs for subject',
+                 xaxis:{title:'Sample values'},
+                 height:400,
+                 width: 700
+             };
+
             var data=[trace1];    
-            Plotly.newPlot('bar', data);
+            Plotly.newPlot('bar', data,layout);
 
             //The bubble chart uses all of the data
             var bubbleIDs=sample[0].samples[0].otu_ids;
@@ -75,6 +83,9 @@ function init() {
             var bubbleData = [trace2];
   
             var layout = {
+            title:'Sample values by OTU IDs: hover for OTU labels',
+            xaxis:{title:'OTU IDs'},
+            yaxis:{title:'Sample values'},    
             showlegend: false,
             height: 600,
             width: 1000
